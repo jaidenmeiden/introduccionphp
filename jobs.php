@@ -1,65 +1,7 @@
 <?php
-//$jobs = [
-//  'PHP Developer',
-//  'Python Dev',
-//  'Devops'
-//];
 
-//$jobs = [
-//  0 => 'PHP Developer',
-//  1 => 'Python Dev',
-//  2 => 'Devops'
-//];
-
-class Job {
-  private $title;
-  public $description;
-  public $visible = true;
-  public $months;
-
-  public function __construct($title, $description) {
-    if($title == "") {
-      $this->title = 'N/A';
-    } else {
-      $this->setTitle($title);
-    } 
-    $this->description = $description;
-  }
-
-  public function getTitle(){
-    return $this->title;
-  }
-
-  public function setTitle($title){
-    if($title == "") {
-      $this->title = 'N/A';
-    } else {
-      $this->title = $title;
-    }    
-  }
-
-  public function getVisible(){
-    return $this->visible;
-  }
-
-  public function setVisible($visible){
-    $this->visible = $visible;  
-  }
-
-  function getDurationString() {
-    $years = floor($this->months / 12);
-    $extraMonths = $this->months % 12;
-    if($years > 0){
-      if($extraMonths > 0){
-        return "$years years $extraMonths months";
-      } else {
-        return "$years years";
-      }  
-    } else {
-      return "$extraMonths months";
-    }  
-  }
-}
+require 'app/Models/Job.php';
+require 'app/Models/Project.php';
 
 $job1 = new Job('PHP Developer', 'This is an awesome job!!!');
 $job1->months = 16;
@@ -80,6 +22,8 @@ $job5->months = 3;
 $job6 = new Job('', 'This is an awesome job!!!');
 $job6->months = 3;
 
+$project1 = new Project('Project 1', 'Descripción 1');
+
 $jobs = [
     $job1,    
     $job2,  
@@ -88,6 +32,26 @@ $jobs = [
     $job5,  
     $job6
   ];
+
+  $projects = [
+    $project1
+  ];  
   
-  //var_dump($jobs);
+  function printElement($job) {
+    if(!$job->visible) {
+      return;
+    }
+  
+    echo '<li class="work-position">
+              <h5>' . $job->getTitle() . '</h5>
+              <p>' . $job->description . '</p>
+              <p>' . $job->getDurationString() . '</p>
+              <strong>Achievements:</strong>
+              <ul>
+                <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
+                <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
+                <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
+              </ul>
+            </li>'; 
+  }
 ?>

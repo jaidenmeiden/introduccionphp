@@ -27,24 +27,6 @@ require_once('jobs.php');
 $name = "Jaiden Riaño";
 $limitMonths = 1000;
 
-function printJob($job) {
-  if(!$job->visible) {
-    return;
-  }
-
-  echo '<li class="work-position">
-            <h5>' . $job->getTitle() . '</h5>
-            <p>' . $job->description . '</p>
-            <p>' . $job->getDurationString() . '</p>
-            <strong>Achievements:</strong>
-            <ul>
-              <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
-              <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
-              <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
-            </ul>
-          </li>'; 
-}
-
 ?>
 
 <html lang="en">
@@ -111,13 +93,20 @@ function printJob($job) {
                 break;
               }
               
-              printJob($jobs[$idx]);       
+              printElement($jobs[$idx]);       
             }              
           ?>            
           </ul>
         </div>
         <div>
           <h3 class="border-bottom-gray">Projects</h3>
+          <ul>
+          <?php 
+            for($idx = 0; $idx < count($projects); $idx++) {             
+              printElement($projects[$idx]);       
+            }              
+          ?>            
+          </ul>
           <div class="project">
             <h5>Project X</h5>
             <div class="row">
