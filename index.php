@@ -1,54 +1,31 @@
 <!doctype html>
 
 <?php
+
+//include()
+//Incluye un archivo externo si lo encuentra
+//y si no lo encuentra muestra una advertencia
+//pero continua con la ejecución del código.
+//include('jobs.php');
+
+//require()
+//Incluye un archivo externo si lo encuentra
+//y si no lo encuentra muestra una error fatal
+//deteniendo la ejecución del código.
+//require('jobs.php');
+
+//require_once()
+//Incluye un archivo externo si lo encuentra
+//y si no lo encuentra muestra una error fatal
+//deteniendo la ejecución del código.
+//---------------------------------------------
+//Esta función importa una sola vez 
+//cada archivo externo.
+require_once('jobs.php');
+
+
 $name = "Jaiden Riaño";
 $limitMonths = 1000;
-//$jobs = [
-//  'PHP Developer',
-//  'Python Dev',
-//  'Devops'
-//];
-
-//$jobs = [
-//  0 => 'PHP Developer',
-//  1 => 'Python Dev',
-//  2 => 'Devops'
-//];
-
-$jobs = [
-  [
-    'title' => 'PHP Developer',
-    'description' => 'This is an awesome job!!!',
-    'visible' => true,
-    'months' => 16
-  ],
-  [
-    'title' => 'Python Dev',
-    'description' => 'This is an awesome job!!!',
-    'visible' => false,
-    'months' => 14
-  ],
-  [
-    'title' => 'Devops',
-    'description' => 'This is an awesome job!!!',
-    'visible' => true,
-    'months' => 24
-  ],
-  [
-    'title' => 'NodeJS Dev',
-    'description' => 'This is an awesome job!!!',
-    'visible' => true,
-    'months' => 22
-  ],
-  [
-    'title' => 'Frontend Dev',
-    'description' => 'This is an awesome job!!!',
-    'visible' => true,
-    'months' => 3
-  ]
-];
-
-//var_dump($jobs);
 
 function getDuration($months) {
   $years = floor($months / 12);
