@@ -102,18 +102,19 @@ $jobs = [
           <ul>
           <?php 
             for($idx = 0; $idx < count($jobs); $idx++) {
-              if($jobs[$idx]['visible']) {
-                echo '<li class="work-position">
-                        <h5>' . $jobs[$idx]['title'] . '</h5>
-                        <p>' . $jobs[$idx]['description'] . '</p>
-                        <strong>Achievements:</strong>
-                        <ul>
-                          <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
-                          <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
-                          <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
-                        </ul>
-                      </li>';
-              }              
+              if(!$jobs[$idx]['visible']) {
+                continue;
+              }
+              echo '<li class="work-position">
+                      <h5>' . $jobs[$idx]['title'] . '</h5>
+                      <p>' . $jobs[$idx]['description'] . '</p>
+                      <strong>Achievements:</strong>
+                      <ul>
+                        <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
+                        <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
+                        <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
+                      </ul>
+                    </li>';        
             }              
           ?>            
           </ul>
