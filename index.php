@@ -18,14 +18,27 @@ $jobs = [
   [
     'title' => 'PHP Developer',
     'description' => 'This is an awesome job!!!',
+    'visible' => true
   ],
   [
     'title' => 'Python Dev',
     'description' => 'This is an awesome job!!!',
+    'visible' => false
   ],
   [
     'title' => 'Devops',
     'description' => 'This is an awesome job!!!',
+    'visible' => false
+  ],
+  [
+    'title' => 'NodeJS Dev',
+    'description' => 'This is an awesome job!!!',
+    'visible' => true
+  ],
+  [
+    'title' => 'Frontend Dev',
+    'description' => 'This is an awesome job!!!',
+    'visible' => true
   ]
 ];
 
@@ -88,20 +101,20 @@ $jobs = [
           <h3 class="border-bottom-gray">Work Experience</h3>
           <ul>
           <?php 
-            $idx = 0;
-            do {
-              echo '<li class="work-position">
-                      <h5>' . $jobs[$idx]['title'] . '</h5>
-                      <p>' . $jobs[$idx]['description'] . '</p>
-                      <strong>Achievements:</strong>
-                      <ul>
-                        <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
-                        <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
-                        <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
-                      </ul>
-                    </li>';
-              $idx++;
-            } while($idx < count($jobs));
+            for($idx = 0; $idx < count($jobs); $idx++) {
+              if($jobs[$idx]['visible']) {
+                echo '<li class="work-position">
+                        <h5>' . $jobs[$idx]['title'] . '</h5>
+                        <p>' . $jobs[$idx]['description'] . '</p>
+                        <strong>Achievements:</strong>
+                        <ul>
+                          <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
+                          <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
+                          <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
+                        </ul>
+                      </li>';
+              }              
+            }              
           ?>            
           </ul>
         </div>
