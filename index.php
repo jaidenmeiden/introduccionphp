@@ -42,14 +42,14 @@ function getDuration($months) {
 }
 
 function printJob($job) {
-  if(!$job['visible']) {
+  if(!$job->visible) {
     return;
   }
 
   echo '<li class="work-position">
-            <h5>' . $job['title'] . '</h5>
-            <p>' . $job['description'] . '</p>
-            <p>' . getDuration($job['months']) . '</p>
+            <h5>' . $job->title . '</h5>
+            <p>' . $job->description . '</p>
+            <p>' . getDuration($job->months) . '</p>
             <strong>Achievements:</strong>
             <ul>
               <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
@@ -118,8 +118,8 @@ function printJob($job) {
           <?php 
             $totalMonths = 0;
             for($idx = 0; $idx < count($jobs); $idx++) {
-              //$totalMonths = $totalMonths + $jobs[$idx]['months'];
-              $totalMonths += $jobs[$idx]['months'];
+              //$totalMonths = $totalMonths + $jobs[$idx]->months;
+              $totalMonths += $jobs[$idx]->months;
 
               if($totalMonths > $limitMonths) {
                 break;
