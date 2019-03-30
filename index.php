@@ -27,29 +27,15 @@ require_once('jobs.php');
 $name = "Jaiden Riaño";
 $limitMonths = 1000;
 
-function getDuration($months) {
-  $years = floor($months / 12);
-  $extraMonths = $months % 12;
-  if($years > 0){
-    if($extraMonths > 0){
-      return "$years years $extraMonths months";
-    } else {
-      return "$years years";
-    }  
-  } else {
-    return "$extraMonths months";
-  }  
-}
-
 function printJob($job) {
   if(!$job->visible) {
     return;
   }
 
   echo '<li class="work-position">
-            <h5>' . $job->title . '</h5>
+            <h5>' . $job->getTitle() . '</h5>
             <p>' . $job->description . '</p>
-            <p>' . getDuration($job->months) . '</p>
+            <p>' . $job->getDurationString() . '</p>
             <strong>Achievements:</strong>
             <ul>
               <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
