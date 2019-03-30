@@ -1,4 +1,36 @@
 <!doctype html>
+
+<?php
+$name = "Jaiden Riaño";
+//$jobs = [
+//  'PHP Developer',
+//  'Python Dev',
+//  'Devops'
+//];
+
+//$jobs = [
+//  0 => 'PHP Developer',
+//  1 => 'Python Dev',
+//  2 => 'Devops'
+//];
+
+$jobs = [
+  [
+    'title' => 'PHP Developer',
+    'description' => 'This is an awesome job!!!',
+  ],
+  [
+    'title' => 'Python Dev',
+  ],
+  [
+    'title' => 'Devops',
+  ]
+];
+
+var_dump($jobs);
+
+?>
+
 <html lang="en">
 
 <head>
@@ -21,7 +53,7 @@
         <img id="profile-picture" src="https://ui-avatars.com/api/?name=John+Doe&size=255" alt="">
       </div>
       <div class="col">
-        <h1>Alfredo Riaño</h1>
+        <h1><?php echo $name; ?></h1>
         <h2>PHP Developer</h2>
         <ul>
           <li>Mail: desarrollo@klapp.com.co</li>
@@ -54,7 +86,17 @@
           <h3 class="border-bottom-gray">Work Experience</h3>
           <ul>
             <li class="work-position">
-              <h5>PHP Developer</h5>
+              <h5><?php echo $jobs[0]['title']; ?></h5>
+              <p><?php echo $jobs[0]['description']; ?></p>
+              <strong>Achievements:</strong>
+              <ul>
+                <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
+                <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
+                <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
+              </ul>
+            </li>
+            <li class="work-position">
+              <h5><?php echo $jobs[1]['title']; ?></h5>
               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi sapiente sed pariatur sint exercitationem
                 eos expedita eveniet veniam ullam, quia neque facilis dicta voluptatibus. Eveniet doloremque ipsum
                 itaque obcaecati nihil.</p>
@@ -66,19 +108,7 @@
               </ul>
             </li>
             <li class="work-position">
-              <h5>PHP Developer</h5>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi sapiente sed pariatur sint exercitationem
-                eos expedita eveniet veniam ullam, quia neque facilis dicta voluptatibus. Eveniet doloremque ipsum
-                itaque obcaecati nihil.</p>
-              <strong>Achievements:</strong>
-              <ul>
-                <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
-                <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
-                <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
-              </ul>
-            </li>
-            <li class="work-position">
-              <h5>PHP Developer</h5>
+              <h5><?php echo $jobs[2]['title']; ?></h5>
               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi sapiente sed pariatur sint exercitationem
                 eos expedita eveniet veniam ullam, quia neque facilis dicta voluptatibus. Eveniet doloremque ipsum
                 itaque obcaecati nihil.</p>
