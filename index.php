@@ -2,6 +2,7 @@
 
 <?php
 $name = "Jaiden Riaño";
+$limitMonths = 12;
 //$jobs = [
 //  'PHP Developer',
 //  'Python Dev',
@@ -18,27 +19,32 @@ $jobs = [
   [
     'title' => 'PHP Developer',
     'description' => 'This is an awesome job!!!',
-    'visible' => true
+    'visible' => true,
+    'months' => 6
   ],
   [
     'title' => 'Python Dev',
     'description' => 'This is an awesome job!!!',
-    'visible' => false
+    'visible' => false,
+    'months' => 4
   ],
   [
     'title' => 'Devops',
     'description' => 'This is an awesome job!!!',
-    'visible' => false
+    'visible' => false,
+    'months' => 5
   ],
   [
     'title' => 'NodeJS Dev',
     'description' => 'This is an awesome job!!!',
-    'visible' => true
+    'visible' => true,
+    'months' => 2
   ],
   [
     'title' => 'Frontend Dev',
     'description' => 'This is an awesome job!!!',
-    'visible' => true
+    'visible' => true,
+    'months' => 3
   ]
 ];
 
@@ -101,13 +107,22 @@ $jobs = [
           <h3 class="border-bottom-gray">Work Experience</h3>
           <ul>
           <?php 
+            $totalMonths = 0;
             for($idx = 0; $idx < count($jobs); $idx++) {
+              //$totalMonths = $totalMonths + $jobs[$idx]['months'];
+              $totalMonths += $jobs[$idx]['months'];
+
+              if($totalMonths > $limitMonths) {
+                break;
+              }
+
               if(!$jobs[$idx]['visible']) {
                 continue;
               }
               echo '<li class="work-position">
                       <h5>' . $jobs[$idx]['title'] . '</h5>
                       <p>' . $jobs[$idx]['description'] . '</p>
+                      <p>' . $totalMonths . '</p>
                       <strong>Achievements:</strong>
                       <ul>
                         <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
