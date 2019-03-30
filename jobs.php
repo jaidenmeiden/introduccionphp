@@ -1,10 +1,6 @@
 <?php
 
-require 'app/Models/Job.php';
-require 'app/Models/Project.php';
-require_once 'app/Models/Printable.php';
-
-require 'lib1/Project.php';
+require_once 'vendor/autoload.php';
 
 use App\Models\Job;
 use App\Models\{Project, Printable};//Agrupación de 'use'
@@ -29,8 +25,6 @@ $job6 = new Job('', 'This is an awesome job!!!');
 $job6->months = 3;
 
 $project1 = new Project('Project 1', 'Descripción 1');
-
-$projectLib = new Lib1\Project();
 
 $jobs = [
     $job1,    
