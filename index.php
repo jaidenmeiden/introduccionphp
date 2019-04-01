@@ -29,7 +29,7 @@ $limitMonths = 1000;
 
 ?>
 
-<html lang="en">
+<html lang="es">
 
 <head>
   <!-- Required meta tags -->
