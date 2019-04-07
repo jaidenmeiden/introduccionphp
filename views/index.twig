@@ -22,7 +22,7 @@
         <img id="profile-picture" src="https://ui-avatars.com/api/?name=John+Doe&size=255" alt="">
       </div>
       <div class="col">
-        <h1><?php echo $name; ?></h1>
+        <h1>{{ name }}</h1>
         <h2>PHP Developer</h2>
         <ul>
           <li>Mail: desarrollo@klapp.com.co</li>
@@ -54,28 +54,44 @@
         <div>
           <h3 class="border-bottom-gray">Work Experience</h3>
           <ul>
-          <?php 
-            $totalMonths = 0;
-            for($idx = 0; $idx < count($jobs); $idx++) {
-              //$totalMonths = $totalMonths + $jobs[$idx]->months;
-              $totalMonths += $jobs[$idx]->months;
-
-              if($totalMonths > $limitMonths) {
-                break;
-              }
-              
-              printJobs($jobs[$idx]);       
-            }              
-          ?>            
+          {% set totalMonths = 0 %}
+          {% for job in jobs %}
+            {% set totalMonths = totalMonths + job.months %}
+            {% if totalMonths < limitMonths %}
+              <li class="work-position">
+                <h5>{{ job.title }}</h5>
+                <p>{{ job.description }}</p>
+                <p>{{ job.getDurationString() }}</p>
+                <strong>Achievements:</strong>
+                <ul>
+                  <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
+                  <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
+                  <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
+                </ul>
+              </li>
+            {% endif %}
+          {% endfor %}      
           </ul>
         </div>
         <div>
           <h3 class="border-bottom-gray">Projects</h3>
-          <?php 
-            for($idx = 0; $idx < count($projects); $idx++) {             
-              printProjects($projects[$idx]);       
-            }              
-          ?>    
+          {% for project in projects %}
+            <div class="project">
+              <h5>{{ project.title }}</h5>
+              <div class="row">
+              <div class="col-3">
+                  <img id="profile-picture" src="https://ui-avatars.com/api/?name=John+Doe&size=255" alt="">
+              </div>
+              <div class="col">
+                  <p>{{ project.description }}</p>
+                  <strong>Technologies used:</strong>
+                  <span class="badge badge-secondary">PHP</span>
+                  <span class="badge badge-secondary">HTML</span>
+                  <span class="badge badge-secondary">CSS</span>
+              </div>
+              </div>
+          </div>
+          {% endfor %}      
           </div>
         </div>
       </div>

@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 
+use Zend\Diactoros\Response\HtmlResponse;
+
 class BaseController {
     protected $templateEmgine;
 
@@ -14,6 +16,6 @@ class BaseController {
     }
 
     public function renderHTML($fileName, $data = []) {
-        return $this->templateEmgine->render($fileName, $data);
+        return new HtmlResponse($this->templateEmgine->render($fileName, $data));
     }
 }

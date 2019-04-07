@@ -60,43 +60,6 @@ $map->post('saveProject', '/project/add', [
     'action' => 'getAddProjectAction'
 ]);
 
-function printJobs($job) {
-    //if(!$job->visible) {
-    //  return;
-    //}
-  
-    echo '<li class="work-position">
-              <h5>' . $job->title . '</h5>
-              <p>' . $job->description . '</p>
-              <p>' . $job->getDurationString() . '</p>
-              <strong>Achievements:</strong>
-              <ul>
-                <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
-                <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
-                <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
-              </ul>
-            </li>'; 
-}
-
-function printProjects($project) {
-
-    echo '<div class="project">
-            <h5>' . $project->title . '</h5>
-            <div class="row">
-            <div class="col-3">
-                <img id="profile-picture" src="https://ui-avatars.com/api/?name=John+Doe&size=255" alt="">
-            </div>
-            <div class="col">
-                <p>' . $project->description . '</p>
-                <strong>Technologies used:</strong>
-                <span class="badge badge-secondary">PHP</span>
-                <span class="badge badge-secondary">HTML</span>
-                <span class="badge badge-secondary">CSS</span>
-            </div>
-            </div>
-        </div>';
-}
-
 $matcher = $routerContainer->getMatcher();
 $route = $matcher->match($request);
 if(!$route){
@@ -107,7 +70,9 @@ if(!$route){
     $actionName = $handlerData['action'];
 
     $controller = new $controllerName;
-    $controller->$actionName($request);
+    $respose = $controller->$actionName($request);
+
+    echo $respose->getBody();
 }
 
 ?>
