@@ -1,32 +1,3 @@
-<?php
-use App\Models\Job;
-
-//include()
-//Incluye un archivo externo si lo encuentra
-//y si no lo encuentra muestra una advertencia
-//pero continua con la ejecución del código.
-//include('jobs.php');
-
-//require()
-//Incluye un archivo externo si lo encuentra
-//y si no lo encuentra muestra una error fatal
-//deteniendo la ejecución del código.
-//require('jobs.php');
-
-//require_once()
-//Incluye un archivo externo si lo encuentra
-//y si no lo encuentra muestra una error fatal
-//deteniendo la ejecución del código.
-//---------------------------------------------
-//Esta función importa una sola vez 
-//cada archivo externo.
-require_once('jobs.php');
-require_once('projects.php');
-
-$name = "Jaiden Riaño";
-$limitMonths = 1000;
-
-?>
 
 <!doctype html>
 <html lang="es">
