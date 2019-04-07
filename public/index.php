@@ -67,6 +67,14 @@ $map->post('saveUser', '/user/add', [
     'controller' => 'App\Controllers\UsersController',
     'action' => 'getAddUserAction'
 ]);
+$map->get('loginForm', '/login', [
+    'controller' => 'App\Controllers\AuthController',
+    'action' => 'getLoginAction'
+]);
+$map->post('auth', '/auth', [
+    'controller' => 'App\Controllers\AuthController',
+    'action' => 'postLoginAction'
+]);
 
 $matcher = $routerContainer->getMatcher();
 $route = $matcher->match($request);
