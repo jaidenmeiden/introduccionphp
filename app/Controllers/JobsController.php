@@ -6,13 +6,18 @@ use App\Models\Job;
 
 class JobsController {
 
-    public function getAddjobAction() {
-        if(!empty($_POST)) {
+    public function getAddjobAction($request) {
+        if($request->getMethod() == 'POST') {
+            $postData = $request->getParsedBody();
+
             $job = new Job();
-            $job->title = $_POST['title'];
-            $job->description = $_POST['description'];
+            $job->title = $postData['title'];
+            $job->description = $postData['description'];
             $job->save();
         }
+        //var_dump($request->getMethod());
+        //var_dump((string)$request->getBody());
+        //var_dump($request->getParsedBody());
 
         include '../views/addJob.php';
     }

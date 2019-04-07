@@ -12,7 +12,7 @@
 </head>
 <body>
         <h1>Add Project</h1>
-        <form action="addProject.php" method="post">
+        <form action="/project/add" method="post">
             <label for="">Title:</label>
             <input type="text" name="title"/><br/>
             <label for="">Description:</label>
