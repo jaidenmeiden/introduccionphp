@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\User;
 use Respect\Validation\Validator as validar;
+use Zend\Diactoros\Response\RedirectResponse;
 
 class AuthController extends BaseController {
 
@@ -12,8 +13,6 @@ class AuthController extends BaseController {
     }
 
     public function postLoginAction($request) {   
-        $reponseMessage = '';
-
         if($request->getMethod() == 'POST') {
             $postData = $request->getParsedBody(); 
             $jobValidator = validar::key('username', validar::stringType()->notEmpty())
@@ -25,12 +24,12 @@ class AuthController extends BaseController {
 
                 if($user) {
                     if(\password_verify($postData['password'], $user->password)){
-                
+                        return new RedirectResponse('/admin');
                     } else {
-                        return $this->getRoute('Incorrect password!');
+                        return $this->getRoute('Bad credencials!');
                     } 
                 } else {
-                    return $this->getRoute('Incorrect User!');
+                    return $this->getRoute('Bad credencials!');
                 }             
             } catch(\Exception $e) {
                 return $this->getRoute($e->getMessage());

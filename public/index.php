@@ -88,6 +88,13 @@ if(!$route){
     $controller = new $controllerName;
     $respose = $controller->$actionName($request);
 
+    //Se imprimen los headers
+    foreach($respose->getHeaders() as $name => $values) {
+        foreach($values as $value) {
+            header(sprintf('%s: %s', $name, $value), false);
+        }
+    }
+    http_response_code($respose->getStatusCode());
     echo $respose->getBody();
 }
 
