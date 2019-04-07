@@ -35,28 +35,31 @@
   </div>
   <div class="row">
     <div class="col">
-      <div>
-        <h3 class="border-bottom-gray">Work Experience</h3>
+<div>
+  <h3 class="border-bottom-gray">Work Experience</h3>
+  <ul>
+  {% set totalMonths = 0 %}
+  {% for job in jobs %}
+    {% set totalMonths = totalMonths + job.months %}
+    {% if totalMonths < limitMonths %}
+      <li class="work-position">
+        {% if job.logo is not null and job.logo is defined %}
+        <img src="{{ asset('uploads/' ~ job.logo) }}" alt="{{ job.title }}" width="300" />
+        {% endif %} 
+        <h5>{{ job.title }}</h5>
+        <p>{{ job.description }}</p>
+        <p>{{ job.getDurationString() }}</p>
+        <strong>Achievements:</strong>
         <ul>
-        {% set totalMonths = 0 %}
-        {% for job in jobs %}
-          {% set totalMonths = totalMonths + job.months %}
-          {% if totalMonths < limitMonths %}
-            <li class="work-position">
-              <h5>{{ job.title }}</h5>
-              <p>{{ job.description }}</p>
-              <p>{{ job.getDurationString() }}</p>
-              <strong>Achievements:</strong>
-              <ul>
-                <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
-                <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
-                <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
-              </ul>
-            </li>
-          {% endif %}
-        {% endfor %}      
+          <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
+          <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
+          <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
         </ul>
-      </div>
+      </li>
+    {% endif %}
+  {% endfor %}      
+  </ul>
+</div>
       <div>
         <h3 class="border-bottom-gray">Projects</h3>
         {% for project in projects %}
