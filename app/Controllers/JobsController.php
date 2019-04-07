@@ -19,6 +19,6 @@ class JobsController extends BaseController {
         //var_dump((string)$request->getBody());
         //var_dump($request->getParsedBody());
 
-        echo $this->renderHTML('addJob.twig');
+        return $this->renderHTML('addJob.twig');
     }
 }
