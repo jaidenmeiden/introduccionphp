@@ -1,0 +1,12 @@
+{% extends "layout.twig" %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+    <h1>Dashboard</h1>
+    <ul>
+        <li><a href="/user/add">Add User</li>
+        <li><a href="/jobs/add">Add Job</li>
+        <li><a href="/project/add">Add Project</li>
+    </ul>
+    <br/><br/>
+    <a href="/logout">Logout</a>
+{% endblock %}

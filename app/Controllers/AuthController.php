@@ -12,6 +12,11 @@ class AuthController extends BaseController {
         return $this->getRoute('Enter the information!');
     }
 
+    public function getLogoutAction($request) {   
+        unset($_SESSION['userId']);
+        return new RedirectResponse('/login');
+    }
+
     public function postLoginAction($request) {   
         if($request->getMethod() == 'POST') {
             $postData = $request->getParsedBody(); 
@@ -24,6 +29,7 @@ class AuthController extends BaseController {
 
                 if($user) {
                     if(\password_verify($postData['password'], $user->password)){
+                        $_SESSION['userId'] = $user->id;
                         return new RedirectResponse('/admin');
                     } else {
                         return $this->getRoute('Bad credencials!');
